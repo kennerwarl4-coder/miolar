@@ -71,6 +71,10 @@ src="https://www.facebook.com/tr?id=1367479012037096&ev=PageView&noscript=1"
     display: block;
   }
 
+  img[hidden], svg[hidden] {
+    display: none;
+  }
+
   h1, h2, h3 {
     font-family: var(--font-display);
     font-weight: 800;
@@ -694,6 +698,10 @@ src="https://www.facebook.com/tr?id=1367479012037096&ev=PageView&noscript=1"
     margin: 18px auto 0;
   }
 
+  .pix-copy-row[hidden] {
+    display: none;
+  }
+
   .pix-copy-row input {
     flex: 1;
     min-width: 0;
@@ -1039,7 +1047,7 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
         <h2>Escaneie para pagar</h2>
         <p>Abra o app do seu banco e escaneie o QR code, ou use o Pix Copia e Cola.</p>
         <img id="pix-qrcode" class="pix-qrcode" src="" alt="QR code Pix" hidden>
-        <div class="pix-copy-row">
+        <div class="pix-copy-row" id="pix-copy-row" hidden>
           <input id="pix-copy-input" type="text" readonly>
           <button type="button" class="btn-step pix-copy-btn" id="pix-copy-btn">Copiar</button>
         </div>
@@ -1213,6 +1221,7 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
     showPanel(pixPanel);
     document.getElementById("pix-waiting").textContent = "Gerando cobrança…";
     document.getElementById("pix-qrcode").hidden = true;
+    document.getElementById("pix-copy-row").hidden = true;
 
     fetch("/api/checkout/create-pix", {
       method: "POST",
@@ -1231,7 +1240,10 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
           img.src = data.qrCode;
           img.hidden = false;
         }
-        document.getElementById("pix-copy-input").value = data.pixCopyPaste || "";
+        if (data.pixCopyPaste) {
+          document.getElementById("pix-copy-input").value = data.pixCopyPaste;
+          document.getElementById("pix-copy-row").hidden = false;
+        }
         pollStatus(data.identifier);
       })
       .catch(function (err) {
