@@ -13,12 +13,38 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1367479012037096');
 fbq('track', 'PageView');
+fbq('track', 'InitiateCheckout', {
+  content_name: 'Kit Estação de Hidratação',
+  content_ids: ['kit-estacao-hidratacao'],
+  content_type: 'product',
+  value: 149.90,
+  currency: 'BRL'
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1367479012037096&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+<!-- Guarda utm_source/medium/campaign/content/term e fbclid/gclid da URL,
+     pra sobreviver até o pedido ser concluído (mesmo que a navegação
+     não preserve a query string até aqui). -->
+<script>
+(function () {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid'];
+    var captured = {};
+    var hasAny = false;
+    keys.forEach(function (k) {
+      var v = params.get(k);
+      if (v) { captured[k] = v; hasAny = true; }
+    });
+    if (hasAny) sessionStorage.setItem('miolar_utm', JSON.stringify(captured));
+  } catch (e) { /* sessionStorage indisponível — segue sem isso */ }
+})();
+</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -865,7 +891,7 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
       <div class="summary-card">
         <p class="eyebrow">Resumo do pedido</p>
         <div class="summary-product">
-          <img class="summary-product__img" src="imagens/capa-kit01.png" alt="Kit Estação de Hidratação">
+          <img class="summary-product__img" src="imagens/capa-kit01.webp" alt="Kit Estação de Hidratação">
           <div class="summary-product__info">
             <strong>Kit Estação de Hidratação</strong>
             <span class="summary-product__qty">Qtd: 1</span>
@@ -1044,14 +1070,19 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
 
       <!-- Aguardando pagamento (QR code Pix) -->
       <section class="success-panel" id="pix-panel" hidden aria-live="polite">
-        <h2>Escaneie para pagar</h2>
-        <p>Abra o app do seu banco e escaneie o QR code, ou use o Pix Copia e Cola.</p>
-        <img id="pix-qrcode" class="pix-qrcode" src="" alt="QR code Pix" hidden>
-        <div class="pix-copy-row" id="pix-copy-row" hidden>
-          <input id="pix-copy-input" type="text" readonly>
-          <button type="button" class="btn-step pix-copy-btn" id="pix-copy-btn">Copiar</button>
+        <div id="pix-loading">
+          <p class="pix-waiting">Gerando cobrança…</p>
         </div>
-        <p class="pix-waiting" id="pix-waiting">Aguardando confirmação do pagamento…</p>
+        <div id="pix-ready" hidden>
+          <h2>Escaneie para pagar</h2>
+          <p>Abra o app do seu banco e escaneie o QR code, ou use o Pix Copia e Cola.</p>
+          <img id="pix-qrcode" class="pix-qrcode" src="" alt="QR code Pix">
+          <div class="pix-copy-row" id="pix-copy-row">
+            <input id="pix-copy-input" type="text" readonly>
+            <button type="button" class="btn-step pix-copy-btn" id="pix-copy-btn">Copiar</button>
+          </div>
+          <p class="pix-waiting">Aguardando confirmação do pagamento…</p>
+        </div>
       </section>
 
       <!-- Erro ao gerar a cobrança -->
@@ -1209,24 +1240,43 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
             clearInterval(pollTimer);
             document.getElementById("order-number").textContent = identifier;
             showPanel(successPanel);
+            if (window.fbq) {
+              fbq('track', 'Purchase', {
+                value: 142.41,
+                currency: 'BRL',
+                content_ids: ['kit-estacao-hidratacao'],
+                content_type: 'product'
+              }, { eventID: identifier });
+            }
           }
         })
         .catch(function () { /* tenta de novo no próximo ciclo */ });
     }, 4000);
   }
 
+  var pixLoading = document.getElementById("pix-loading");
+  var pixReady = document.getElementById("pix-ready");
+
+  function getStoredUtm() {
+    try {
+      return JSON.parse(sessionStorage.getItem('miolar_utm') || '{}');
+    } catch (e) {
+      return {};
+    }
+  }
+
   form3.addEventListener("submit", function (e) {
     e.preventDefault();
     hideSteps();
     showPanel(pixPanel);
-    document.getElementById("pix-waiting").textContent = "Gerando cobrança…";
-    document.getElementById("pix-qrcode").hidden = true;
-    document.getElementById("pix-copy-row").hidden = true;
+    document.querySelector(".checkout__summary").hidden = true;
+    pixLoading.hidden = false;
+    pixReady.hidden = true;
 
     fetch("/api/checkout/create-pix", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: 142.41, customer: customerData })
+      body: JSON.stringify({ amount: 142.41, customer: customerData, utm: getStoredUtm() })
     })
       .then(function (r) {
         return r.json().then(function (data) { return { ok: r.ok, data: data }; });
@@ -1234,15 +1284,16 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
       .then(function (result) {
         if (!result.ok) throw new Error(result.data.error || "Falha ao gerar o Pix.");
         var data = result.data;
-        document.getElementById("pix-waiting").textContent = "Aguardando confirmação do pagamento…";
         if (data.qrCode) {
-          var img = document.getElementById("pix-qrcode");
-          img.src = data.qrCode;
-          img.hidden = false;
+          document.getElementById("pix-qrcode").src = data.qrCode;
         }
         if (data.pixCopyPaste) {
           document.getElementById("pix-copy-input").value = data.pixCopyPaste;
-          document.getElementById("pix-copy-row").hidden = false;
+        }
+        pixLoading.hidden = true;
+        pixReady.hidden = false;
+        if (window.fbq) {
+          fbq('track', 'AddPaymentInfo', { value: 142.41, currency: 'BRL' });
         }
         pollStatus(data.identifier);
       })
@@ -1263,6 +1314,7 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
     document.getElementById("step-2").style.display = "";
     document.getElementById("step-3").style.display = "";
     stepper.style.display = "";
+    document.querySelector(".checkout__summary").hidden = false;
     errorPanel.hidden = true;
   });
 })();

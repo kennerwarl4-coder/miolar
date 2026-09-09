@@ -17,12 +17,38 @@
       'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1367479012037096');
     fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_name: 'Kit Estação de Hidratação',
+      content_ids: ['kit-estacao-hidratacao'],
+      content_type: 'product',
+      value: 149.90,
+      currency: 'BRL'
+    });
   </script>
   <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1367479012037096&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
   <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
     data-utmify-prevent-subids async defer></script>
+
+  <!-- Guarda utm_source/medium/campaign/content/term e fbclid/gclid da URL,
+       pra sobreviver até o pedido ser concluído no checkout (mesmo que a
+       navegação entre páginas não preserve a query string). -->
+  <script>
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid'];
+        var captured = {};
+        var hasAny = false;
+        keys.forEach(function (k) {
+          var v = params.get(k);
+          if (v) { captured[k] = v; hasAny = true; }
+        });
+        if (hasAny) sessionStorage.setItem('miolar_utm', JSON.stringify(captured));
+      } catch (e) { /* sessionStorage indisponível (modo privado etc.) — segue sem isso */ }
+    })();
+  </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1764,34 +1790,34 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
 
           <!-- Panel: Kit montado (foto do kit completo) -->
           <div class="gallery__panel" id="panel-kit" role="tabpanel" aria-labelledby="tab-kit">
-            <!-- ===== IMG: kit completo (imagens/capa-kit01.png) ===== -->
-            <img class="gallery__hero-img" src="imagens/capa-kit01.png"
+            <!-- ===== IMG: kit completo (imagens/capa-kit01.webp) ===== -->
+            <img class="gallery__hero-img" src="imagens/capa-kit01.webp"
               alt="Kit Estação de Hidratação Miolar completo: fonte de água, 3 refis, comedouro duplo elevado e tapete impermeável"
-              width="1536" height="1024">
+              width="1536" height="1024" fetchpriority="high">
           </div>
 
           <!-- Panel: Peças separadas (grid 2x2, ou 1 peça ampliada ao clicar numa miniatura) -->
           <div class="gallery__panel" id="panel-parts" role="tabpanel" aria-labelledby="tab-parts" hidden>
             <div class="parts-grid" id="parts-grid">
               <div class="parts-grid__cell">
-                <!-- ===== IMG: fonte de água (imagens/capa-tanque.png) ===== -->
-                <img src="imagens/capa-tanque.png" alt="Fonte de água 2L com bomba USB, fluxo em cascata" width="1290"
-                  height="1219">
+                <!-- ===== IMG: fonte de água (imagens/capa-tanque.webp) ===== -->
+                <img src="imagens/capa-tanque.webp" alt="Fonte de água 2L com bomba USB, fluxo em cascata" width="1290"
+                  height="1219" loading="lazy">
               </div>
               <div class="parts-grid__cell">
-                <!-- ===== IMG: refis de filtro (imagens/capa-refis.png) ===== -->
-                <img src="imagens/capa-refis.png" alt="3 refis de filtro de carvão ativado com camada de algodão"
-                  width="1536" height="1024">
+                <!-- ===== IMG: refis de filtro (imagens/capa-refis.webp) ===== -->
+                <img src="imagens/capa-refis.webp" alt="3 refis de filtro de carvão ativado com camada de algodão"
+                  width="1536" height="1024" loading="lazy">
               </div>
               <div class="parts-grid__cell">
-                <!-- ===== IMG: comedouro duplo elevado (imagens/capa-comedouro.png) ===== -->
-                <img src="imagens/capa-comedouro.png"
-                  alt="Comedouro duplo elevado, 2 cumbucas de cerâmica em suporte de bambu" width="1536" height="1024">
+                <!-- ===== IMG: comedouro duplo elevado (imagens/capa-comedouro.webp) ===== -->
+                <img src="imagens/capa-comedouro.webp"
+                  alt="Comedouro duplo elevado, 2 cumbucas de cerâmica em suporte de bambu" width="1536" height="1024" loading="lazy">
               </div>
               <div class="parts-grid__cell">
-                <!-- ===== IMG: tapete impermeável (imagens/capa-tapete-impermeavel.png) ===== -->
-                <img src="imagens/capa-tapete-impermeavel.png"
-                  alt="Tapete impermeável com borda levantada e base antiderrapante" width="1536" height="1024">
+                <!-- ===== IMG: tapete impermeável (imagens/capa-tapete-impermeavel.webp) ===== -->
+                <img src="imagens/capa-tapete-impermeavel.webp"
+                  alt="Tapete impermeável com borda levantada e base antiderrapante" width="1536" height="1024" loading="lazy">
               </div>
             </div>
             <div class="parts-single" id="parts-single" hidden>
@@ -1803,19 +1829,19 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
         <!-- Thumbnails -->
         <div class="thumbs" role="group" aria-label="Selecionar visualização">
           <button class="thumb" data-thumb="kit" aria-pressed="true" aria-label="Ver kit montado">
-            <img src="imagens/capa-kit01.png" alt="" loading="lazy">
+            <img src="imagens/capa-kit01.webp" alt="" loading="lazy">
           </button>
           <button class="thumb" data-thumb="fonte" aria-pressed="false" aria-label="Ver fonte de água">
-            <img src="imagens/capa-tanque.png" alt="" loading="lazy">
+            <img src="imagens/capa-tanque.webp" alt="" loading="lazy">
           </button>
           <button class="thumb" data-thumb="refis" aria-pressed="false" aria-label="Ver refis de filtro">
-            <img src="imagens/capa-refis.png" alt="" loading="lazy">
+            <img src="imagens/capa-refis.webp" alt="" loading="lazy">
           </button>
           <button class="thumb" data-thumb="comedouro" aria-pressed="false" aria-label="Ver comedouro duplo">
-            <img src="imagens/capa-comedouro.png" alt="" loading="lazy">
+            <img src="imagens/capa-comedouro.webp" alt="" loading="lazy">
           </button>
           <button class="thumb" data-thumb="tapete" aria-pressed="false" aria-label="Ver tapete impermeável">
-            <img src="imagens/capa-tapete-impermeavel.png" alt="" loading="lazy">
+            <img src="imagens/capa-tapete-impermeavel.webp" alt="" loading="lazy">
           </button>
         </div>
       </div>
@@ -1948,8 +1974,8 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
       <div class="parts">
         <div class="part-card">
           <div class="part-card__art">
-            <!-- ===== IMG: fonte de água (imagens/capa-tanque.png) ===== -->
-            <img src="imagens/capa-tanque.png" alt="Fonte de água 2L Miolar">
+            <!-- ===== IMG: fonte de água (imagens/capa-tanque.webp) ===== -->
+            <img src="imagens/capa-tanque.webp" alt="Fonte de água 2L Miolar" loading="lazy">
           </div>
           <h3>Fonte de água 2L</h3>
           <p>Bomba USB 5V submersa com fluxo em cascata. Reservatório com marca de nível e cabo de 1,5 m.</p>
@@ -1957,8 +1983,8 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
 
         <div class="part-card">
           <div class="part-card__art">
-            <!-- ===== IMG: refis de filtro (imagens/capa-refis.png) ===== -->
-            <img src="imagens/capa-refis.png" alt="3 refis de filtro Miolar">
+            <!-- ===== IMG: refis de filtro (imagens/capa-refis.webp) ===== -->
+            <img src="imagens/capa-refis.webp" alt="3 refis de filtro Miolar" loading="lazy">
           </div>
           <h3>3 refis de filtro</h3>
           <p>Carvão ativado com camada de algodão. Cada refil dura até 45 dias de uso contínuo.</p>
@@ -1966,8 +1992,8 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
 
         <div class="part-card">
           <div class="part-card__art">
-            <!-- ===== IMG: comedouro duplo elevado (imagens/capa-comedouro.png) ===== -->
-            <img src="imagens/capa-comedouro.png" alt="Comedouro duplo elevado Miolar">
+            <!-- ===== IMG: comedouro duplo elevado (imagens/capa-comedouro.webp) ===== -->
+            <img src="imagens/capa-comedouro.webp" alt="Comedouro duplo elevado Miolar" loading="lazy">
           </div>
           <h3>Comedouro duplo elevado</h3>
           <p>Duas cumbucas de cerâmica esmaltada sobre suporte de bambu, cerca de 8 cm de altura. Dá para separar água e
@@ -1976,8 +2002,8 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
 
         <div class="part-card">
           <div class="part-card__art">
-            <!-- ===== IMG: tapete impermeável (imagens/capa-tapete-impermeavel.png) ===== -->
-            <img src="imagens/capa-tapete-impermeavel.png" alt="Tapete impermeável Miolar">
+            <!-- ===== IMG: tapete impermeável (imagens/capa-tapete-impermeavel.webp) ===== -->
+            <img src="imagens/capa-tapete-impermeavel.webp" alt="Tapete impermeável Miolar" loading="lazy">
           </div>
           <h3>Tapete impermeável</h3>
           <p>PVC atóxico de 40 × 30 cm com borda levantada e base antiderrapante para segurar respingos.</p>
@@ -2009,8 +2035,8 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
       </div>
 
       <div class="argument__art">
-        <!-- ===== IMG: gato bebendo da fonte (imagens/ilustração-gato-bebendo-agua.png) ===== -->
-        <img src="imagens/ilustração-gato-bebendo-agua.png" alt="Gato bebendo água diretamente do jato da fonte Miolar">
+        <!-- ===== IMG: gato bebendo da fonte (imagens/ilustração-gato-bebendo-agua.webp) ===== -->
+        <img src="imagens/ilustração-gato-bebendo-agua.webp" alt="Gato bebendo água diretamente do jato da fonte Miolar" loading="lazy">
       </div>
     </div>
   </section>
@@ -2505,10 +2531,10 @@ m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
       var partsSingleImg = document.getElementById('parts-single-img');
 
       var pieceData = {
-        fonte: { src: 'imagens/capa-tanque.png', alt: 'Fonte de água 2L Miolar' },
-        refis: { src: 'imagens/capa-refis.png', alt: '3 refis de filtro Miolar' },
-        comedouro: { src: 'imagens/capa-comedouro.png', alt: 'Comedouro duplo elevado Miolar' },
-        tapete: { src: 'imagens/capa-tapete-impermeavel.png', alt: 'Tapete impermeável Miolar' }
+        fonte: { src: 'imagens/capa-tanque.webp', alt: 'Fonte de água 2L Miolar' },
+        refis: { src: 'imagens/capa-refis.webp', alt: '3 refis de filtro Miolar' },
+        comedouro: { src: 'imagens/capa-comedouro.webp', alt: 'Comedouro duplo elevado Miolar' },
+        tapete: { src: 'imagens/capa-tapete-impermeavel.webp', alt: 'Tapete impermeável Miolar' }
       };
 
       function showPartsGrid() {
