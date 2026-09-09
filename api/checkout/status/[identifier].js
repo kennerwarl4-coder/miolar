@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    res.status(200).json(getStatus(req.query.identifier));
+    res.status(200).json(await getStatus(req.query.identifier));
   } catch (err) {
     res.status(err.statusCode || 500).json({ error: err.message });
   }

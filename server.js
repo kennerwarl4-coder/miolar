@@ -25,9 +25,9 @@ app.post("/api/checkout/create-pix", async (req, res) => {
   }
 });
 
-app.get("/api/checkout/status/:identifier", (req, res) => {
+app.get("/api/checkout/status/:identifier", async (req, res) => {
   try {
-    res.json(getStatus(req.params.identifier));
+    res.json(await getStatus(req.params.identifier));
   } catch (err) {
     res.status(err.statusCode || 500).json({ error: err.message });
   }
