@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1367479012037096');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1367479012037096&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Finalizar compra | Miolar</title>
+<meta name="description" content="Finalize a compra do Kit Estação de Hidratação Miolar: identificação, entrega e pagamento em 3 passos.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #222222;
+    --ink-soft: #6E6E68;
+    --white: #FFFFFF;
+    --surface: #F7F6F2;
+    --yellow: #F2B705;
+    --yellow-lt: #FFF1C2;
+    --yellow-dk: #8A6800;
+    --line: #E4E2DA;
+    --green: #1E7A46;
+
+    --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+    --font-body: 'Instrument Sans', system-ui, sans-serif;
+
+    --maxw: 1040px;
+    --pad: 24px;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img, svg {
+    max-width: 100%;
+    display: block;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  p { margin: 0; }
+  a { color: inherit; }
+  ul, ol { margin: 0; padding: 0; list-style: none; }
+  button { font-family: inherit; cursor: pointer; }
+  input, select { font-family: inherit; }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+  }
+
+  /* ---------- Header ---------- */
+  .checkout-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .checkout-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .logo__svg {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+
+  .secure-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green);
+  }
+
+  .secure-badge svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  /* ---------- Layout ---------- */
+  .checkout {
+    padding-top: 32px;
+    padding-bottom: 64px;
+  }
+
+  .checkout__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  @media (min-width: 961px) {
+    .checkout__grid {
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 40px;
+    }
+
+    .checkout__steps { order: 1; }
+
+    .checkout__summary {
+      order: 2;
+      position: sticky;
+      top: 88px;
+    }
+  }
+
+  /* ---------- Summary card ---------- */
+  .summary-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px;
+  }
+
+  .summary-product {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .summary-product__img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    background: var(--yellow-lt);
+    border-radius: var(--radius-sm);
+    padding: 6px;
+    flex-shrink: 0;
+  }
+
+  .summary-product__info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .summary-product__info strong {
+    display: block;
+    font-size: 14.5px;
+    font-weight: 700;
+  }
+
+  .summary-product__qty {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .summary-product__price {
+    font-size: 14.5px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .summary-rows {
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    margin-bottom: 14px;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--ink-soft);
+    padding: 4px 0;
+  }
+
+  .text-green { color: var(--green); font-weight: 600; }
+
+  .summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .summary-total-note {
+    font-size: 13px;
+    color: var(--yellow-dk);
+    margin-top: 6px;
+    font-weight: 600;
+  }
+
+  .secure-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green);
+  }
+
+  .secure-line svg { width: 16px; height: 16px; }
+
+  /* ---------- Steps column ---------- */
+  .checkout__title {
+    font-size: 26px;
+    margin: 8px 0 20px;
+  }
+
+  /* ---------- Stepper ---------- */
+  .stepper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .stepper__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .stepper__circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    background: var(--white);
+    border: 1.5px solid var(--line);
+    color: var(--ink-soft);
+  }
+
+  .stepper__label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .stepper__step[data-status="active"] .stepper__circle {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--ink);
+  }
+
+  .stepper__step[data-status="active"] .stepper__label {
+    color: var(--ink);
+  }
+
+  .stepper__step[data-status="done"] .stepper__circle {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--white);
+  }
+
+  .stepper__line {
+    flex: 1;
+    height: 1.5px;
+    background: var(--line);
+    margin: 0 8px 20px;
+  }
+
+  .stepper__line[data-status="done"] {
+    background: var(--ink);
+  }
+
+  /* ---------- Step cards ---------- */
+  .step-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  .step-card[data-state="locked"] {
+    opacity: 0.55;
+  }
+
+  .step-card__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 22px;
+  }
+
+  .step-card[data-state="active"] .step-card__header {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .step-card__num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-card__header h2 {
+    font-size: 16px;
+  }
+
+  .step-card__body {
+    padding: 20px 22px 22px;
+  }
+
+  .step-card__body[hidden],
+  .step-card__summary[hidden] {
+    display: none;
+  }
+
+  .step-card__summary {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 22px 20px;
+  }
+
+  .step-card__summary-text {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .step-card__summary-text strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .step-card__edit {
+    background: none;
+    border: none;
+    color: var(--ink);
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: underline;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ---------- Form fields ---------- */
+  .field {
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .field__label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+
+  .field input,
+  .field select {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    font-size: 14.5px;
+    color: var(--ink);
+    background: var(--white);
+  }
+
+  .field input::placeholder { color: #A7A59C; }
+
+  .field input:invalid:not(:placeholder-shown) {
+    border-color: #C0392B;
+  }
+
+  .field-row {
+    display: flex;
+    gap: 12px;
+  }
+
+  .field-row .field {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .field--sm { flex: 0 0 96px; }
+
+  .field-note {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 4px 0 18px;
+  }
+
+  .field-note svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  @media (max-width: 480px) {
+    .field-row { flex-wrap: wrap; }
+    .field--sm { flex: 1 1 100px; }
+  }
+
+  /* ---------- Payment options ---------- */
+  .payment-options {
+    border: none;
+    padding: 0;
+    margin: 0 0 18px;
+  }
+
+  .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: var(--white);
+  }
+
+  .payment-option:has(input:checked),
+  .payment-option.is-checked {
+    border-color: var(--green);
+    background: #EAF6EF;
+  }
+
+  .payment-option--disabled {
+    cursor: not-allowed;
+    background: var(--surface);
+  }
+
+  .payment-option--disabled .payment-option__main {
+    color: var(--ink-soft);
+  }
+
+  .payment-option--disabled .payment-option__radio {
+    border-color: var(--line);
+    background: var(--surface);
+  }
+
+  .payment-option input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+
+  .payment-option__radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.8px solid var(--line);
+    background: var(--white);
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .payment-option input:checked ~ .payment-option__radio {
+    border-color: var(--green);
+  }
+
+  .payment-option input:checked ~ .payment-option__radio::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--green);
+    transform: translate(-50%, -50%);
+  }
+
+  .payment-option input:focus-visible ~ .payment-option__radio {
+    outline: 3px solid var(--yellow);
+    outline-offset: 2px;
+  }
+
+  .payment-option__content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .payment-option__content svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .payment-option__pix-logo {
+    height: 22px;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  .payment-option__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .payment-option__main {
+    font-size: 14.5px;
+    font-weight: 700;
+  }
+
+  .payment-option__sub {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 360px) {
+    .payment-option {
+      padding: 12px 12px;
+      gap: 10px;
+    }
+
+    .payment-option__main {
+      font-size: 13.5px;
+    }
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn-step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: var(--yellow);
+    color: var(--ink);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 15px;
+    min-height: 50px;
+    padding: 10px 16px;
+    text-decoration: none;
+  }
+
+  .btn-step:hover { filter: brightness(0.96); }
+
+  /* ---------- Success panel ---------- */
+  .success-panel {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 36px 26px;
+    text-align: center;
+  }
+
+  .success-panel[hidden] { display: none; }
+
+  .success-panel__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--yellow-lt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+  }
+
+  .success-panel__icon svg { width: 28px; height: 28px; }
+
+  .success-panel h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .success-panel p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+
+  .success-panel .btn-step {
+    max-width: 260px;
+    margin: 20px auto 0;
+  }
+
+  .success-panel p {
+    margin-bottom: 4px;
+  }
+
+  .pix-qrcode {
+    width: 220px;
+    height: 220px;
+    margin: 18px auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+  }
+
+  .pix-copy-row {
+    display: flex;
+    gap: 8px;
+    max-width: 420px;
+    margin: 18px auto 0;
+  }
+
+  .pix-copy-row input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    background: var(--surface);
+  }
+
+  .pix-copy-btn {
+    width: auto;
+    margin: 0;
+    padding: 0 18px;
+    flex-shrink: 0;
+  }
+
+  .pix-waiting {
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 600px) {
+    .checkout { padding-top: 20px; padding-bottom: 44px; }
+    .step-card__header { padding: 16px 18px; }
+    .step-card__body { padding: 16px 18px 18px; }
+    .step-card__summary { padding: 0 18px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="checkout-header">
+  <div class="container checkout-header__inner">
+    <a href="index.html" class="logo" aria-label="Miolar, página inicial">
+      <svg class="logo__svg" viewBox="0 0 1254 1254" aria-hidden="true">
+        <g transform="translate(0.000000,1254.000000) scale(0.100000,-0.100000)" fill="var(--ink)" stroke="none">
+          <path d="M7325 9306 c-72 -24 -207 -94 -305 -157 -127 -82 -364 -291 -468
+-413 l-41 -48 -93 17 c-142 26 -461 32 -629 10 -145 -18 -283 -45 -396 -77
+l-71 -21 -99 88 c-251 225 -514 383 -742 447 -98 28 -251 31 -296 6 -95 -52
+-137 -152 -155 -373 -22 -279 33 -621 163 -1000 l24 -70 -45 -95 c-58 -126
+-97 -234 -127 -350 -25 -102 -48 -240 -41 -247 2 -3 17 2 33 10 40 21 153 53
+267 77 120 24 309 27 423 5 84 -16 107 -33 94 -68 -8 -21 -12 -22 -167 -19
+-194 4 -334 -14 -484 -64 -187 -63 -410 -197 -410 -249 0 -27 32 -51 53 -39 6
+4 28 19 47 34 19 15 61 41 92 59 l57 32 11 -59 c7 -33 15 -64 19 -71 5 -8 48
+8 142 53 154 74 275 117 427 152 125 28 175 30 196 8 19 -19 21 -48 4 -61 -7
+-5 -62 -20 -123 -32 -154 -31 -258 -64 -404 -127 -202 -88 -379 -194 -473
+-282 -49 -45 -58 -68 -36 -90 22 -22 47 -12 128 53 69 56 178 123 184 113 22
+-43 126 -185 149 -203 l32 -25 85 83 c97 95 139 129 265 214 83 57 300 172
+353 188 30 9 28 25 -8 70 -50 63 -36 105 43 125 344 89 573 228 717 436 47 68
+91 154 239 469 61 128 111 210 122 198 4 -4 21 -45 38 -90 18 -44 54 -125 82
+-178 201 -391 474 -578 950 -649 54 -8 106 -19 118 -25 24 -13 27 -47 9 -98
+-6 -18 -9 -35 -6 -38 3 -3 57 -19 119 -35 183 -47 314 -102 502 -213 37 -22
+69 -38 72 -36 13 14 46 110 61 178 17 78 18 80 43 75 14 -3 72 -28 128 -55
+117 -58 138 -59 138 -10 0 31 -5 37 -60 67 -79 44 -205 90 -335 121 -95 23
+-126 26 -320 27 -118 1 -221 5 -228 10 -17 11 -15 40 6 59 47 42 351 47 526 7
+50 -11 94 -20 98 -20 4 0 8 25 8 56 l0 56 33 -7 c49 -11 118 -35 161 -57 52
+-26 86 -18 86 21 0 26 -7 33 -52 54 -159 75 -392 114 -577 97 -114 -10 -266
+-45 -345 -80 -58 -26 -96 -17 -96 23 0 32 24 52 96 81 147 60 348 92 519 83
+l114 -6 -21 57 c-43 118 -117 261 -192 371 l-77 115 16 65 c30 127 55 298 67
+470 11 151 10 195 -5 340 -29 290 -78 416 -181 465 -51 24 -165 20 -251 -8z
+m133 -262 c35 -24 51 -66 68 -177 26 -164 5 -513 -37 -644 l-10 -32 -102 86
+c-136 114 -224 171 -394 255 l-143 71 39 46 c118 140 341 328 456 382 68 33
+91 35 123 13z m-2965 -174 c87 -36 264 -154 390 -260 89 -75 111 -100 88 -100
+-4 0 -63 -36 -130 -81 -143 -94 -292 -233 -400 -373 l-75 -96 -14 33 c-22 52
+-59 203 -78 322 -27 158 -27 450 0 518 32 84 86 93 219 37z m2657 -1079 c68
+-25 171 -107 184 -144 8 -21 6 -31 -7 -44 -15 -15 -22 -14 -94 20 -117 55
+-205 72 -293 57 -88 -15 -183 -62 -273 -135 -100 -82 -131 -69 -81 33 49 100
+165 194 283 228 67 19 212 12 281 -15z m-1810 -182 c116 -48 221 -135 236
+-194 13 -53 -10 -53 -119 2 -142 71 -201 87 -305 80 -70 -4 -96 -11 -157 -41
+-40 -20 -97 -54 -127 -76 -60 -46 -82 -47 -86 -7 -10 81 134 212 277 253 69
+20 213 12 281 -17z" />
+          <path d="M8759 8385 c-123 -33 -229 -117 -280 -220 -30 -62 -31 -68 -27 -162
+5 -113 22 -155 135 -325 101 -153 154 -282 189 -457 23 -116 15 -347 -15 -484
+-69 -305 -263 -610 -465 -731 -72 -44 -86 -45 -86 -8 0 52 -40 186 -80 267
+-75 153 -186 263 -345 340 -141 69 -252 95 -430 102 -135 5 -163 3 -277 -21
+-298 -61 -523 -189 -680 -385 -176 -221 -185 -421 -25 -535 55 -39 137 -64
+227 -68 l65 -3 5 200 c4 170 8 205 23 228 21 32 56 36 80 9 15 -16 17 -48 17
+-235 l0 -216 33 -6 c17 -3 91 -5 162 -3 l130 3 6 190 c5 201 12 233 55 255 19
+11 27 10 49 -4 l25 -16 -7 -205 c-5 -177 -4 -205 9 -210 23 -9 157 22 213 50
+53 25 112 76 155 132 l25 32 165 -14 c503 -42 726 -41 913 5 364 90 630 371
+761 803 112 370 127 757 41 1077 -31 116 -116 292 -186 383 -55 73 -157 161
+-226 196 -98 49 -251 65 -354 36z" />
+          <path d="M6065 7314 c-134 -21 -205 -61 -205 -115 0 -26 64 -94 132 -140 40
+-27 58 -46 58 -61 0 -88 -88 -196 -178 -218 -72 -17 -130 -6 -188 35 -38 27
+-51 32 -66 24 -34 -18 -32 -39 8 -80 52 -53 114 -73 214 -67 67 4 87 10 136
+39 31 19 72 53 92 76 l35 42 41 -34 c62 -51 119 -70 206 -70 62 0 86 6 133 28
+117 58 181 197 91 197 -17 0 -27 -8 -34 -24 -13 -35 -77 -94 -117 -107 -19 -6
+-61 -9 -93 -7 -97 7 -170 70 -185 160 -6 36 -4 41 50 100 159 174 109 259
+-130 222z" />
+          <path d="M5085 6590 c-227 -36 -501 -203 -632 -387 -60 -84 -83 -148 -83 -228
+0 -140 68 -212 235 -250 64 -15 292 -35 301 -26 2 2 4 96 4 207 l0 204 26 17
+c23 15 29 15 52 2 14 -8 29 -25 33 -39 4 -14 7 -109 8 -213 l1 -188 158 3 157
+3 3 207 2 207 26 20 c25 19 45 19 72 -2 9 -7 12 -62 12 -215 l0 -205 68 6
+c129 12 239 62 322 146 71 71 94 130 88 235 -5 102 -49 188 -143 281 -100 99
+-208 159 -361 200 -70 20 -265 28 -349 15z" />
+          <path d="M3445 5484 c-55 -23 -123 -76 -171 -132 -40 -47 -108 -140 -309 -417
+-60 -82 -147 -199 -194 -259 l-85 -109 -44 49 c-24 27 -60 72 -80 101 -20 28
+-91 123 -157 209 -366 482 -423 536 -576 550 -120 12 -228 -32 -313 -126 -93
+-103 -96 -130 -98 -847 -2 -876 19 -1104 109 -1204 56 -62 105 -83 188 -82 39
+0 87 8 107 16 73 31 139 108 171 202 6 18 13 212 16 488 l6 459 150 -167 c165
+-183 293 -303 361 -336 68 -32 147 -36 218 -9 72 27 147 98 406 378 96 105
+177 188 180 186 2 -3 5 -199 6 -437 1 -282 5 -456 13 -501 31 -183 133 -276
+300 -276 111 1 199 56 242 152 l24 53 -2 665 c-1 366 -6 775 -11 910 -8 233
+-9 248 -34 301 -32 69 -90 129 -160 165 -68 35 -200 44 -263 18z" />
+          <path d="M7220 5482 c-61 -23 -132 -96 -155 -157 -16 -46 -19 -117 -27 -875
+-10 -893 -8 -1002 17 -1070 36 -101 138 -164 265 -163 137 1 224 53 272 161
+34 77 39 210 36 1077 -3 828 -3 841 -24 885 -27 58 -76 107 -133 133 -64 28
+-191 33 -251 9z" />
+          <path d="M4339 5455 c-56 -18 -142 -92 -172 -149 -31 -59 -31 -193 0 -252 106
+-200 426 -188 528 19 68 139 23 293 -105 361 -66 36 -176 45 -251 21z" />
+          <path d="M5745 5019 c-149 -19 -349 -100 -480 -194 -116 -83 -250 -244 -300
+-360 -94 -220 -118 -463 -66 -668 66 -254 272 -471 541 -565 164 -57 227 -67
+435 -67 163 0 203 3 285 23 180 43 337 128 469 256 153 148 234 316 262 549
+23 189 -31 432 -133 598 -191 310 -596 481 -1013 428z m-4 -430 c15 -11 40
+-44 55 -75 23 -48 26 -63 22 -123 -8 -110 -58 -174 -136 -174 -60 0 -102 30
+-136 96 -92 181 49 381 195 276z m429 3 c43 -33 62 -77 63 -146 1 -76 -27
+-139 -84 -190 -34 -31 -46 -36 -90 -36 -46 0 -55 4 -84 35 -64 67 -68 183 -10
+281 45 77 141 103 205 56z m-736 -313 c117 -107 93 -310 -38 -334 -40 -8 -103
+21 -134 60 -58 73 -69 200 -23 264 28 39 51 50 109 50 36 1 49 -5 86 -40z
+m1056 13 c40 -40 55 -103 41 -168 -35 -154 -173 -231 -260 -144 -79 80 -45
+255 63 321 19 12 49 19 79 19 40 0 54 -5 77 -28z m-548 -174 c22 -6 60 -30 85
+-52 65 -57 191 -204 214 -248 62 -122 14 -255 -106 -288 -49 -14 -80 -8 -195
+35 -59 22 -145 15 -227 -19 -108 -45 -209 -26 -253 47 -28 45 -26 138 3 194
+29 54 210 257 262 293 73 49 140 61 217 38z" />
+          <path d="M10119 4966 c-87 -31 -136 -75 -173 -157 l-26 -55 -6 -660 c-5 -479
+-4 -670 5 -700 14 -54 80 -127 131 -148 71 -28 168 -31 246 -8 84 26 136 67
+172 136 l27 51 6 400 c4 264 10 412 17 436 16 47 62 110 105 143 80 61 175 71
+295 30 167 -57 296 -13 358 121 102 219 -131 436 -444 412 -93 -7 -200 -55
+-273 -124 -30 -28 -54 -43 -56 -36 -9 26 -63 92 -95 116 -70 53 -205 73 -289
+43z" />
+          <path d="M8575 4960 c-140 -22 -303 -92 -430 -187 -131 -98 -219 -205 -290
+-355 -59 -125 -85 -227 -92 -368 -17 -356 145 -633 452 -770 110 -50 195 -65
+355 -65 163 1 249 19 363 76 61 31 199 128 212 148 11 19 22 12 29 -19 16 -83
+112 -169 213 -191 61 -14 170 -1 221 25 47 24 104 88 131 145 l26 56 0 645 c0
+723 2 699 -73 782 -60 66 -102 83 -212 83 -88 0 -99 -2 -150 -31 -36 -20 -68
+-49 -91 -82 l-36 -51 -38 26 c-55 38 -191 99 -260 117 -73 20 -248 28 -330 16z
+m350 -523 c154 -72 233 -209 223 -388 -12 -197 -137 -343 -337 -389 -185 -43
+-396 60 -460 226 -74 192 -8 407 159 514 86 55 143 70 255 68 85 -3 109 -7
+160 -31z" />
+          <path d="M4290 4809 c-55 -25 -105 -71 -133 -124 -21 -39 -22 -58 -30 -530
+-10 -598 -7 -734 17 -793 24 -55 93 -116 153 -133 72 -21 187 -16 255 10 75
+29 131 90 155 168 16 52 17 113 18 633 0 447 -3 583 -13 612 -24 66 -67 114
+-133 147 -56 28 -71 31 -153 31 -70 0 -102 -5 -136 -21z" />
+        </g>
+      </svg>
+    </a>
+    <div class="secure-badge">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      Ambiente seguro
+    </div>
+  </div>
+</header>
+
+<main class="checkout">
+  <div class="container checkout__grid">
+
+    <div class="checkout__summary">
+      <div class="summary-card">
+        <p class="eyebrow">Resumo do pedido</p>
+        <div class="summary-product">
+          <img class="summary-product__img" src="imagens/capa-kit01.png" alt="Kit Estação de Hidratação">
+          <div class="summary-product__info">
+            <strong>Kit Estação de Hidratação</strong>
+            <span class="summary-product__qty">Qtd: 1</span>
+          </div>
+          <span class="summary-product__price">R$ 149,90</span>
+        </div>
+        <div class="summary-rows">
+          <div class="summary-row"><span>Subtotal</span><span>R$ 149,90</span></div>
+          <div class="summary-row"><span>Frete</span><span class="text-green">Grátis</span></div>
+        </div>
+        <div class="summary-total">
+          <span>Total</span>
+          <span id="summary-total-value">R$ 149,90</span>
+        </div>
+        <p class="summary-total-note" id="summary-total-note" hidden></p>
+        <div class="secure-line">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          Compra 100% segura
+        </div>
+      </div>
+    </div>
+
+    <div class="checkout__steps">
+      <h1 class="checkout__title">Finalizar compra</h1>
+
+      <ol class="stepper" id="stepper" aria-label="Progresso da compra">
+        <li class="stepper__step" data-step="1" data-status="active">
+          <span class="stepper__circle">1</span>
+          <span class="stepper__label">Identificação</span>
+        </li>
+        <li class="stepper__line" data-line="1"></li>
+        <li class="stepper__step" data-step="2" data-status="pending">
+          <span class="stepper__circle">2</span>
+          <span class="stepper__label">Entrega</span>
+        </li>
+        <li class="stepper__line" data-line="2"></li>
+        <li class="stepper__step" data-step="3" data-status="pending">
+          <span class="stepper__circle">3</span>
+          <span class="stepper__label">Pagamento</span>
+        </li>
+      </ol>
+
+      <!-- Step 1: Identificação -->
+      <section class="step-card" id="step-1" data-state="active">
+        <div class="step-card__header">
+          <span class="step-card__num">1</span>
+          <h2>Identificação</h2>
+        </div>
+        <div class="step-card__body">
+          <form id="form-1" novalidate>
+            <label class="field">
+              <span class="field__label">Nome completo</span>
+              <input type="text" name="nome" required placeholder="Seu nome completo" autocomplete="name">
+            </label>
+            <label class="field">
+              <span class="field__label">E-mail</span>
+              <input type="email" name="email" required placeholder="voce@email.com" autocomplete="email">
+            </label>
+            <label class="field">
+              <span class="field__label">WhatsApp</span>
+              <input type="tel" name="telefone" required placeholder="(11) 91234-5678" autocomplete="tel">
+            </label>
+            <label class="field">
+              <span class="field__label">CPF</span>
+              <input type="text" name="cpf" required inputmode="numeric" placeholder="000.000.000-00" autocomplete="off">
+            </label>
+            <button type="submit" class="btn-step">Ir para entrega</button>
+          </form>
+        </div>
+        <div class="step-card__summary" hidden>
+          <div class="step-card__summary-text"></div>
+          <button type="button" class="step-card__edit">Editar</button>
+        </div>
+      </section>
+
+      <!-- Step 2: Entrega -->
+      <section class="step-card" id="step-2" data-state="locked">
+        <div class="step-card__header">
+          <span class="step-card__num">2</span>
+          <h2>Entrega</h2>
+        </div>
+        <div class="step-card__body" hidden>
+          <form id="form-2" novalidate>
+            <label class="field">
+              <span class="field__label">CEP</span>
+              <input type="text" name="cep" required inputmode="numeric" placeholder="00000-000" autocomplete="postal-code">
+            </label>
+            <label class="field">
+              <span class="field__label">Endereço</span>
+              <input type="text" name="rua" required placeholder="Rua, avenida..." autocomplete="address-line1">
+            </label>
+            <div class="field-row">
+              <label class="field field--sm">
+                <span class="field__label">Número</span>
+                <input type="text" name="numero" required placeholder="123">
+              </label>
+              <label class="field">
+                <span class="field__label">Complemento</span>
+                <input type="text" name="complemento" placeholder="Apto, bloco (opcional)">
+              </label>
+            </div>
+            <label class="field">
+              <span class="field__label">Bairro</span>
+              <input type="text" name="bairro" required placeholder="Seu bairro">
+            </label>
+            <div class="field-row">
+              <label class="field">
+                <span class="field__label">Cidade</span>
+                <input type="text" name="cidade" required placeholder="Sua cidade" autocomplete="address-level2">
+              </label>
+              <label class="field field--sm">
+                <span class="field__label">UF</span>
+                <select name="uf" required autocomplete="address-level1">
+                  <option value="">--</option>
+                  <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                  <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                  <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                  <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                  <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                  <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                  <option>SP</option><option>SE</option><option>TO</option>
+                </select>
+              </label>
+            </div>
+            <p class="field-note">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="7" width="13" height="10" rx="1.5" stroke="var(--ink-soft)" stroke-width="1.6" /><path d="M15 10h3.5L21 13.5V17h-6" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linejoin="round" /><circle cx="7" cy="19" r="1.8" stroke="var(--ink-soft)" stroke-width="1.6" /><circle cx="18" cy="19" r="1.8" stroke="var(--ink-soft)" stroke-width="1.6" /></svg>
+              Frete grátis para todo o Brasil
+            </p>
+            <button type="submit" class="btn-step">Ir para pagamento</button>
+          </form>
+        </div>
+        <div class="step-card__summary" hidden>
+          <div class="step-card__summary-text"></div>
+          <button type="button" class="step-card__edit">Editar</button>
+        </div>
+      </section>
+
+      <!-- Step 3: Pagamento -->
+      <section class="step-card" id="step-3" data-state="locked">
+        <div class="step-card__header">
+          <span class="step-card__num">3</span>
+          <h2>Pagamento</h2>
+        </div>
+        <div class="step-card__body" hidden>
+          <form id="form-3" novalidate>
+            <fieldset class="payment-options">
+              <legend class="visually-hidden">Forma de pagamento</legend>
+              <label class="payment-option">
+                <input type="radio" name="pagamento" value="pix" checked>
+                <span class="payment-option__radio" aria-hidden="true"></span>
+                <span class="payment-option__content">
+                  <img class="payment-option__pix-logo" src="imagens/pix.webp" alt="">
+                  <span class="payment-option__text">
+                    <span class="payment-option__main">Pagamento via Pix</span>
+                    <span class="payment-option__sub">Aprovação imediata · 5% de desconto</span>
+                  </span>
+                </span>
+              </label>
+              <label class="payment-option payment-option--disabled">
+                <input type="radio" name="pagamento" value="cartao" disabled>
+                <span class="payment-option__radio" aria-hidden="true"></span>
+                <span class="payment-option__content">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" stroke="var(--ink-soft)" stroke-width="1.6" /><line x1="2" y1="10" x2="22" y2="10" stroke="var(--ink-soft)" stroke-width="1.6" /></svg>
+                  <span class="payment-option__text">
+                    <span class="payment-option__main">Cartão de crédito</span>
+                    <span class="payment-option__sub">Em breve</span>
+                  </span>
+                </span>
+              </label>
+            </fieldset>
+
+            <button type="submit" class="btn-step">Confirmar pedido</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Aguardando pagamento (QR code Pix) -->
+      <section class="success-panel" id="pix-panel" hidden aria-live="polite">
+        <h2>Escaneie para pagar</h2>
+        <p>Abra o app do seu banco e escaneie o QR code, ou use o Pix Copia e Cola.</p>
+        <img id="pix-qrcode" class="pix-qrcode" src="" alt="QR code Pix" hidden>
+        <div class="pix-copy-row">
+          <input id="pix-copy-input" type="text" readonly>
+          <button type="button" class="btn-step pix-copy-btn" id="pix-copy-btn">Copiar</button>
+        </div>
+        <p class="pix-waiting" id="pix-waiting">Aguardando confirmação do pagamento…</p>
+      </section>
+
+      <!-- Erro ao gerar a cobrança -->
+      <section class="success-panel" id="error-panel" hidden aria-live="polite">
+        <h2>Não deu pra gerar o Pix</h2>
+        <p id="error-message">Tente novamente em alguns instantes.</p>
+        <button type="button" class="btn-step" id="error-retry">Tentar de novo</button>
+      </section>
+
+      <!-- Success -->
+      <section class="success-panel" id="success-panel" hidden aria-live="polite">
+        <div class="success-panel__icon">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12l4 4 8-8" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </div>
+        <h2>Pagamento confirmado</h2>
+        <p>Número do pedido: <strong id="order-number"></strong></p>
+        <p>Você vai receber a confirmação por e-mail.</p>
+        <a href="index.html" class="btn-step">Voltar para a loja</a>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var stepper = document.getElementById("stepper");
+  var stepEls = {
+    1: document.getElementById("step-1"),
+    2: document.getElementById("step-2"),
+    3: document.getElementById("step-3")
+  };
+
+  function setStepperStatus(step, status) {
+    var circle = stepper.querySelector('[data-step="' + step + '"]');
+    if (circle) circle.dataset.status = status;
+    var line = stepper.querySelector('[data-line="' + step + '"]');
+    if (line && status === "done") line.dataset.status = "done";
+  }
+
+  function unlockStep(step) {
+    var card = stepEls[step];
+    card.dataset.state = "active";
+    card.querySelector(".step-card__body").hidden = false;
+    setStepperStatus(step, "active");
+  }
+
+  function completeStep(step, summaryHTML) {
+    var card = stepEls[step];
+    card.dataset.state = "done";
+    card.querySelector(".step-card__body").hidden = true;
+    var summary = card.querySelector(".step-card__summary");
+    if (summary) {
+      summary.hidden = false;
+      summary.querySelector(".step-card__summary-text").innerHTML = summaryHTML;
+    }
+    setStepperStatus(step, "done");
+  }
+
+  function reopenStep(step) {
+    var card = stepEls[step];
+    card.dataset.state = "active";
+    card.querySelector(".step-card__body").hidden = false;
+    var summary = card.querySelector(".step-card__summary");
+    if (summary) summary.hidden = true;
+    setStepperStatus(step, "active");
+  }
+
+  var customerData = {};
+
+  // Step 1
+  var form1 = document.getElementById("form-1");
+  form1.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form1.reportValidity()) return;
+    var nome = form1.nome.value.trim();
+    var email = form1.email.value.trim();
+    customerData.name = nome;
+    customerData.email = email;
+    customerData.phone = form1.telefone.value.trim();
+    customerData.document = form1.cpf.value.trim();
+    completeStep(1, "<strong>" + nome + "</strong><br>" + email);
+    unlockStep(2);
+  });
+
+  document.querySelector('#step-1 .step-card__edit').addEventListener("click", function () {
+    reopenStep(1);
+  });
+
+  // Step 2
+  var form2 = document.getElementById("form-2");
+  form2.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form2.reportValidity()) return;
+    var rua = form2.rua.value.trim();
+    var numero = form2.numero.value.trim();
+    var complemento = form2.complemento.value.trim();
+    var cidade = form2.cidade.value.trim();
+    var uf = form2.uf.value;
+    var linha1 = rua + ", " + numero + (complemento ? ", " + complemento : "");
+    completeStep(2, "<strong>" + linha1 + "</strong><br>" + cidade + "/" + uf + " · Frete grátis");
+    unlockStep(3);
+  });
+
+  document.querySelector('#step-2 .step-card__edit').addEventListener("click", function () {
+    reopenStep(2);
+  });
+
+  // Step 3 — payment method
+  var totalValue = document.getElementById("summary-total-value");
+  var totalNote = document.getElementById("summary-total-note");
+  var paymentRadios = document.querySelectorAll('input[name="pagamento"]');
+
+  function updateTotal() {
+    paymentRadios.forEach(function (radio) {
+      radio.closest(".payment-option").classList.toggle("is-checked", radio.checked);
+    });
+    totalValue.textContent = "R$ 142,41";
+    totalNote.textContent = "Pix com 5% de desconto aplicado";
+    totalNote.hidden = false;
+  }
+
+  paymentRadios.forEach(function (radio) {
+    radio.addEventListener("change", updateTotal);
+  });
+  updateTotal();
+
+  // Step 3 — confirm order: cria a cobrança Pix de verdade no backend
+  var form3 = document.getElementById("form-3");
+  var pixPanel = document.getElementById("pix-panel");
+  var errorPanel = document.getElementById("error-panel");
+  var successPanel = document.getElementById("success-panel");
+  var pollTimer = null;
+
+  function hideSteps() {
+    document.getElementById("step-1").style.display = "none";
+    document.getElementById("step-2").style.display = "none";
+    document.getElementById("step-3").style.display = "none";
+    stepper.style.display = "none";
+  }
+
+  function showPanel(panel) {
+    [pixPanel, errorPanel, successPanel].forEach(function (p) { p.hidden = p !== panel; });
+  }
+
+  function pollStatus(identifier) {
+    clearInterval(pollTimer);
+    pollTimer = setInterval(function () {
+      fetch("/api/checkout/status/" + encodeURIComponent(identifier))
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data.status === "COMPLETED") {
+            clearInterval(pollTimer);
+            document.getElementById("order-number").textContent = identifier;
+            showPanel(successPanel);
+          }
+        })
+        .catch(function () { /* tenta de novo no próximo ciclo */ });
+    }, 4000);
+  }
+
+  form3.addEventListener("submit", function (e) {
+    e.preventDefault();
+    hideSteps();
+    showPanel(pixPanel);
+    document.getElementById("pix-waiting").textContent = "Gerando cobrança…";
+    document.getElementById("pix-qrcode").hidden = true;
+
+    fetch("/api/checkout/create-pix", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ amount: 142.41, customer: customerData })
+    })
+      .then(function (r) {
+        return r.json().then(function (data) { return { ok: r.ok, data: data }; });
+      })
+      .then(function (result) {
+        if (!result.ok) throw new Error(result.data.error || "Falha ao gerar o Pix.");
+        var data = result.data;
+        document.getElementById("pix-waiting").textContent = "Aguardando confirmação do pagamento…";
+        if (data.qrCode) {
+          var img = document.getElementById("pix-qrcode");
+          img.src = data.qrCode;
+          img.hidden = false;
+        }
+        document.getElementById("pix-copy-input").value = data.pixCopyPaste || "";
+        pollStatus(data.identifier);
+      })
+      .catch(function (err) {
+        document.getElementById("error-message").textContent = err.message;
+        showPanel(errorPanel);
+      });
+  });
+
+  document.getElementById("pix-copy-btn").addEventListener("click", function () {
+    var input = document.getElementById("pix-copy-input");
+    input.select();
+    navigator.clipboard && navigator.clipboard.writeText(input.value);
+  });
+
+  document.getElementById("error-retry").addEventListener("click", function () {
+    document.getElementById("step-1").style.display = "";
+    document.getElementById("step-2").style.display = "";
+    document.getElementById("step-3").style.display = "";
+    stepper.style.display = "";
+    errorPanel.hidden = true;
+  });
+})();
+</script>
+
+</body>
+</html>
